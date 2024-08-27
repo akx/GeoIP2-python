@@ -355,6 +355,7 @@ class TestBaseClient(unittest.TestCase):
 
 class TestClient(TestBaseClient):
     def setUp(self):
+        pytest.importorskip("requests")
         self.client_class = Client
         self.client = Client(42, "abcdef123456")
         self.client._base_uri = self.httpserver.url_for("/geoip/v2.1")
@@ -365,6 +366,7 @@ class TestClient(TestBaseClient):
 
 class TestAsyncClient(TestBaseClient):
     def setUp(self):
+        pytest.importorskip("aiohttp")
         self._loop = asyncio.new_event_loop()
         self.client_class = AsyncClient
         self.client = AsyncClient(42, "abcdef123456")
