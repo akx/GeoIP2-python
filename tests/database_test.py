@@ -4,10 +4,7 @@
 from __future__ import unicode_literals
 
 import ipaddress
-import sys
 import unittest
-
-sys.path.append("..")
 
 import geoip2.database
 import geoip2.errors
